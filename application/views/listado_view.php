@@ -10,11 +10,11 @@
  		echo heading('Archivo(s) disponible(s) para descargar', 3);
 
 		  	foreach($files as $file){         
-				echo anchor('files/downloads/'.$file, $file).br(1);            
+				echo anchor('admin/downloads/'.$file, $file).br(1);            
 		  	}
 		}
 		else{
-			echo heading('No hay archivos para descargar ', 3).anchor('files', 'Subir un Archivo');
+			echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
 		}
 
 	?>

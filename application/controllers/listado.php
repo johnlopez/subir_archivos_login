@@ -16,7 +16,7 @@ public function index()
 	{
 		$files = get_filenames($this->folder, FALSE);
 	
-	if($files){
+		if($files){
         $data['files']=$files;
              
         }else{

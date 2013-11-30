@@ -9,11 +9,17 @@ class Files_model extends CI_Model {
     }
     
     //FUNCIÓN PARA INSERTAR LOS DATOS DE LA IMAGEN SUBIDA
-    function subir($imagen)
+    function subir($titulo,$imagen,$autor,$descripcion,$resumen,$fecha,$hora)
     {
         $data = array(
+            'titulo' => $titulo,
+            'autor' => $autor,
+            'descripcion' => $descripcion,
+            'resumen' => $resumen,
+            'fecha' => $fecha,
+            'hora' => $hora,            
             'ruta' => $imagen // ruta base de datos // imagen del controler
         );
-        return $this->db->insert('imagenes', $data);
+        return $this->db->insert('proyectotitulo', $data);
     }
 }

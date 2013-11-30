@@ -30,8 +30,28 @@ class Admin extends CI_Controller {
 		{
 			redirect(base_url().'login');
 		}
-		else
-		{	
+	else
+	{
+
+		//++++++VALIDACIONES++++++++++++++//
+		$this->form_validation->set_rules('titulo','titulo','trim|required|xss_clean|max_lenght[50]|min_length[2]');
+        $this->form_validation->set_rules('autor','autor','trim|required|xss_clean|max_lenght[50]|min_length[2]');
+        $this->form_validation->set_rules('descripcion','descripcion','trim|required|xss_clean|max_lenght[250]|min_length[2]');
+        $this->form_validation->set_rules('resumen','resumen','trim|required|xss_clean');
+
+        
+
+
+        $this->form_validation->set_message('required', 'Campo %s es obligatorio');
+        //validamos el email con la función de ci valid_email
+        $this->form_validation->set_message('valid_email', 'El %s no es v&aacute;lido');
+        //comprobamos que se cumpla el mínimo de caracteres introducidos
+        $this->form_validation->set_message('min_length', 'Campo %s debe tener al menos %s car&aacute;cteres');
+        //comprobamos que se cumpla el máximo de caracteres introducidos
+        $this->form_validation->set_message('max_length', 'Campo %s debe tener menos %s car&aacute;cteres');
+        //++++++VALIDACIONES++++++++++++++//
+
+
 
 		$config['upload_path'] = $this->folder;
 		$config['allowed_types'] = 'zip|rar|pdf|docx|txt';
@@ -46,13 +66,35 @@ class Admin extends CI_Controller {
             $this->load->view('admin_view', $error);
 		}
 		else
-		{
-			
+		{	
+			//++++++Pasar VALORES DE la VISTA ++++//
+			$titulo = $this->input->post('titulo');
+			$autor = $this->input->post('autor');    
+            $descripcion = $this->input->post('descripcion');                            
+            $resumen = $this->input->post('resumen');
+           	
+
+            date_default_timezone_set("Chile/Continental");
+            $fecha = date('Y-m-d');
+            $hora= date("H:i:s");
+
+
+
+
+
+
+
+           	//++++++Pasar VALORES DE la VISTA ++++//
+	        
+
 	        $data = array('upload_data' => $this->upload->data());
 	        $file_info = $this->upload->data();        
 	        $imagen = $file_info['file_name'];
-	        $subir = $this->files_model->subir($imagen);      
-	       
+	        
+	        //++++++Manda datos al Modelo++++++//
+	        $subir = $this->files_model->subir($titulo,$imagen,$autor,$descripcion,$resumen,$fecha,$hora);      
+	        //++++++Manda datos al Modelo++++++//
+
 	        $data['imagen'] = $imagen;
 	        
 
@@ -64,7 +106,7 @@ class Admin extends CI_Controller {
 
 	}
 
-   } 
+} 
 //************ SE OBTIENEN LOS NOMBRES DE LOS ARCHIVOS ****************
 
 public function info(){
