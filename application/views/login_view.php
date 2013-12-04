@@ -51,7 +51,7 @@
 	$submit = array('name' => 'submit', 'value' => 'Iniciar sesión', 'title' => 'Iniciar sesión');
 	?>
 	<div class="container_12">
-		<h1>Formulario de login con varios perfiles de usuario</h1>
+		<h1>Login</h1>
 		<div class="grid_12" id="login">
 			<div class="grid_8 push_2" id="formulario_login">
 				<div class="grid_6 push_1" id="campos_login">
