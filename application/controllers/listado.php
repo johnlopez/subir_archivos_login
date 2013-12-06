@@ -152,4 +152,10 @@ public function downloads($name){
  
     }
 
+    //*********** Ver Detalles de un archivos*************
+public function detalles(){	
+   $this->load->view('detalles_view');	
+ 
+}
+
 }

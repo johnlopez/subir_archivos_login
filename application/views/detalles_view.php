@@ -374,137 +374,18 @@ footer a {
 </section>
 
 <article>
-    <h1>Buscador</h1>
+    <h1>DETALLES</h1>
     <p> 
-<div class="container_12">
-    <div class="grid_12" id="buscador_multipe">
-        
-        <?php $atributos = array('class' => 'formulario') ?>
-        <?php echo form_open('listado',$atributos) ?>
-
-            <?php echo form_label('buscar en el resumen') ?>
-            <input type="text" name="resumen" class="resumen" id="resumen" placeholder="Tus palabras clave" />
-            
-            <?php echo form_label('buscar segun titulo') ?>
-            <input type="text" name="titulo" class="titulo" id="titulo" placeholder='impacto' />
-            
-
-            <?php echo form_label('Sector') ?>  
-            <select name="sector" class="sector" id="select">
-                <option value="" selected="selected">Sector</option>
-                <option value="Programación">Programación</option>
-                <option value="Medicina">Medicina</option>
-                <option value="Comerciales">Comerciales</option>
-                <option value="Almacén">Almacén</option>
-            </select>
-            
-            <!--este es nuestro autocompletado-->
-            <input type="text" autocomplete="off" onpaste="return false" name="poblacion" 
-            id="poblacion" class="poblacion" placeholder="Busca tu población" />
-            
-            <div class="muestra_poblaciones"></div>
-                
-            <?php echo form_submit('buscar','Buscar') ?>
-            
-        <?php echo form_close() ?>
-        
-    </div>  
 
 
-    
-    
-    <?php echo heading('Archivos disponibles para descargar:', 3);?>
-    <?php if($files){ ?>
-           
-           
-            
+<?php
 
-    <?php //si hay resultados los mostramos
-
-
-    if(is_array($resultados) && !is_null($resultados))
-    {
-    ?>
-
-
-    <div class="CSSTableGenerator" >
-        <table >
-        <div class="grid_12 resultados">
-            <h2>Resultados</h2>
-
-            <div class="grid_12" id="head_resultados">
-                <tr>
-                <td><div class="grid_1">Titulo</div></td>
-                <td><div class="grid_2">Autor</div></td>
-                <td><div class="grid_3">Fecha</div></td>
-                <td><div class="grid_4">Descripcion</div></td>      
-                <td><div class="grid_5">Resumen</div></td>
-                <td><div class="grid_6">Ruta</div></td>
-                </tr>
-            </div>
-                
-            <div class="grid_12" id="body_rñesultados">
-            
-             <?php foreach($files as $file){         ?>
-
-            <?php
-            foreach($resultados as $fila)
-            {
-                if ($fila->ruta==$file) {
-                    # code...
-                
-            ?>
-                <tr>
-                <td><div class="grid_1"><?php echo $fila->titulo; $a=$fila->titulo;?>
-
-                    <form action="http://localhost/roles_usuarios/listado/detalles" method="post">
-                    <input type="hidden" name="variable1" value="<?php echo $a ?>" />
-                    
-                    
-                    <input type="submit" value="Ver Detalles" />
-
-                    </form>
+$v1 = $_POST['variable1'];
 
 
 
-
-                </div></td>
-                <td><div class="grid_2"><?php echo $fila->autor ?></div></td>
-                <td><div class="grid_3"><?php echo $fila->fecha ?></div></td>
-                <td><div class="grid_4"><?php echo $fila->descripcion ?></div></td>
-                <td><div class="grid_5"><?php echo $fila->titulo ?></div></td>
-                
-                <td><div class="grid_6"><?php echo anchor('admin/downloads/'.$file, $file).br(1); ?></div></td>
-                </tr>
-            <?php
-              }
-            }
-            ?>
-                                
-            <?php } ?>
-            </div>
-        </div>
-        <?php
-        }// if resultados
-        else{?>
-            <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
-    <?php } ?>
-        ?>
-
-    <?php } //if($files)
-    else{?>
-            <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
-    <?php } ?>
-        </table>
-    </div>
-</div>
-
-
-
-
-
-
-
+echo $v1;
+?>
 
 
     </p> 
@@ -514,22 +395,6 @@ footer a {
     <h2>.</h2>
     <p>
 
-        <div >
-        <?php
-        /*
-            if($files){
-            echo heading('Archivo(s) disponible(s) para descargar', 3);
-
-                foreach($files as $file){         
-                    echo anchor('admin/downloads/'.$file, $file).br(1);            
-                }
-            }
-            else{
-                echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
-            }
-        */
-        ?>
-        </div>
 
     </p>
     <p>---------------------------------</p>
