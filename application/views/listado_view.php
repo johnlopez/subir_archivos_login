@@ -232,7 +232,108 @@ footer {
 footer a {
     margin:0px 5px;
 }
+
+
+/////////////////////// TABLA CSS //////////////////////////////////////
+.CSSTableGenerator {
+    margin:0px;padding:0px;
+    width:100%;
+    box-shadow: 10px 10px 5px #888888;
+    border:1px solid #3f7f00;
+    
+    -moz-border-radius-bottomleft:8px;
+    -webkit-border-bottom-left-radius:8px;
+    border-bottom-left-radius:8px;
+    
+    -moz-border-radius-bottomright:8px;
+    -webkit-border-bottom-right-radius:8px;
+    border-bottom-right-radius:8px;
+    
+    -moz-border-radius-topright:8px;
+    -webkit-border-top-right-radius:8px;
+    border-top-right-radius:8px;
+    
+    -moz-border-radius-topleft:8px;
+    -webkit-border-top-left-radius:8px;
+    border-top-left-radius:8px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+    width:100%;
+    height:100%;
+    margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+    -moz-border-radius-bottomright:8px;
+    -webkit-border-bottom-right-radius:8px;
+    border-bottom-right-radius:8px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+    -moz-border-radius-topleft:8px;
+    -webkit-border-top-left-radius:8px;
+    border-top-left-radius:8px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+    -moz-border-radius-topright:8px;
+    -webkit-border-top-right-radius:8px;
+    border-top-right-radius:8px;
+}.CSSTableGenerator tr:last-child td:first-child{
+    -moz-border-radius-bottomleft:8px;
+    -webkit-border-bottom-left-radius:8px;
+    border-bottom-left-radius:8px;
+}.CSSTableGenerator tr:hover td{
+    
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#d4ffaa; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+    vertical-align:middle;
+    
+    
+    border:1px solid #3f7f00;
+    border-width:0px 1px 1px 0px;
+    text-align:left;
+    padding:7px;
+    font-size:10px;
+    font-family:Arial;
+    font-weight:normal;
+    color:#000000;
+}.CSSTableGenerator tr:last-child td{
+    border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+    border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+    border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+        background:-o-linear-gradient(bottom, #4d9307 5%, #336005 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4d9307), color-stop(1, #336005) );
+    background:-moz-linear-gradient( center top, #4d9307 5%, #336005 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4d9307", endColorstr="#336005");  background: -o-linear-gradient(top,#4d9307,336005);
+
+    background-color:#4d9307;
+    border:0px solid #3f7f00;
+    text-align:center;
+    border-width:0px 0px 1px 1px;
+    font-size:14px;
+    font-family:Arial;
+    font-weight:bold;
+    color:#ffffff;
+}
+.CSSTableGenerator tr:first-child:hover td{
+    background:-o-linear-gradient(bottom, #4d9307 5%, #336005 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4d9307), color-stop(1, #336005) );
+    background:-moz-linear-gradient( center top, #4d9307 5%, #336005 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4d9307", endColorstr="#336005");  background: -o-linear-gradient(top,#4d9307,336005);
+
+    background-color:#4d9307;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+    border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+    border-width:0px 0px 1px 1px;
+}
+
 </style>
+
+
 
 </head>
 
@@ -294,13 +395,118 @@ footer a {
 	<div >
 	<?=anchor('login/', 'Registrarse'); ?>
 	</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </p> 
 
----------------------------------
+<div class="container_12">
+    <div class="grid_12" id="buscador_multipe">
+        <h2>Buscador múltiples criterios</h2>
+        <?php $atributos = array('class' => 'formulario') ?>
+        <?php echo form_open('listado',$atributos) ?>
+
+            <?php echo form_label('buscar en el resumen') ?>
+            <input type="text" name="resumen" class="resumen" id="resumen" placeholder="Tus palabras clave" />
+            
+            <?php echo form_label('buscar segun titulo') ?>
+            <input type="text" name="titulo" class="titulo" id="titulo" placeholder="clave titulo" />
+            
+
+            <?php echo form_label('Sector') ?>  
+            <select name="sector" class="sector" id="select">
+                <option value="" selected="selected">Sector</option>
+                <option value="Programación">Programación</option>
+                <option value="Medicina">Medicina</option>
+                <option value="Comerciales">Comerciales</option>
+                <option value="Almacén">Almacén</option>
+            </select>
+            
+            <!--este es nuestro autocompletado-->
+            <input type="text" autocomplete="off" onpaste="return false" name="poblacion" 
+            id="poblacion" class="poblacion" placeholder="Busca tu población" />
+            
+            <div class="muestra_poblaciones"></div>
+                
+            <?php echo form_submit('buscar','Buscar') ?>
+            
+        <?php echo form_close() ?>
+        
+    </div>  
+            
+    <?php //si hay resultados los mostramos
+
+    if(is_array($resultados) && !is_null($resultados))
+    {
+    ?>
+    <div class="CSSTableGenerator" >
+        <table >
+        <div class="grid_12 resultados">
+            <h2>Resultados</h2>
+
+            <div class="grid_12" id="head_resultados">
+                <tr>
+                <td><div class="grid_1">Titulo</div></td>
+                <td><div class="grid_2">Autor</div></td>
+                <td><div class="grid_3">Fecha</div></td>
+                <td><div class="grid_4">Descripcion</div></td>      
+                <td><div class="grid_5">Resumen</div></td>
+                <td><div class="grid_6">Ruta</div></td>
+                </tr>
+            </div>
+                
+            <div class="grid_12" id="body_rñesultados">
+            <?php
+            foreach($resultados as $fila)
+            {
+            ?>
+                <tr>
+                <td><div class="grid_1"><?php echo $fila->titulo ?></div></td>
+                <td><div class="grid_2"><?php echo $fila->autor ?></div></td>
+                <td><div class="grid_3"><?php echo $fila->fecha ?></div></td>
+                <td><div class="grid_4"><?php echo $fila->descripcion ?></div></td>
+                <td><div class="grid_5"><?php echo $fila->resumen ?></div></td>
+                <td><div class="grid_6"><?php echo $fila->ruta ?></div></td>
+                </tr>
+            <?php
+            }
+            ?>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
+        </table>
+    </div>
+</div>
     </p>
     <h2>Titulo 2</h2>
-    <p>
----------------------------------</p>
+    <p>--------------------
+
+    </p>
     <p>---------------------------------</p>
     <h3>Titulo 3</h3>
     <p>---------------------------------
