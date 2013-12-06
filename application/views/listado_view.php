@@ -30,12 +30,13 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing:-0.06em;
     text-transform:uppercase;
     font-weight:normal;
+
 }
 
 a:link, a:visited {
     font-family:georgia, times, serif;
     font-weight:bold;
-    color:#4169e1;
+    color:#4169e1; 
     text-decoration:none;
     border-bottom:1px solid #91476c;
     font-size:.8em;
@@ -121,7 +122,7 @@ section#right {
 
 section h1, section h2, section h3, section h4, section h5, section h6 {
     background:transparent url(sprites.png) no-repeat 0px -80px;
-    color:#fff;
+    color:#000000;
     padding:9px 10px 10px 10px;
     margin:13px -10px;  
     text-shadow:0 1px 0 #403232;
@@ -159,7 +160,7 @@ article {
 
 article h1 {
     background:transparent url(sprites.png) no-repeat 0px 0px;
-    color:#fff;
+    color:#000000;
     padding:7px 10px 12px 30px;
     margin-left:-30px;
     text-shadow:0 1px 0 #403232;
@@ -167,7 +168,7 @@ article h1 {
 
 article h2, article h3, article h4, article h5, article h6  {
     background:transparent url(sprites.png) no-repeat 0px -40px;
-    color:#fff;
+    color:#000000;
     padding:7px 10px 12px 30px;
     margin-left:-30px;
     text-shadow:0 1px 0 #913951;
@@ -349,7 +350,7 @@ footer a {
             <li><a href="#">Home</a></li>
             <li><a href="#">Tab 1</a></li>
             <li><a href="#">Tab 2</a></li>
-            <li><a href="#">Tab 3</a></li>
+            <li><a><?=anchor('login/', 'Registrarse'); ?></a></li>
         </ul>
     </nav>
     
@@ -375,42 +376,6 @@ footer a {
 <article>
     <h1>Titulo 1</h1>
     <p> 
-
-	<div >
-	<?php
- 		if($files){
- 		echo heading('Archivo(s) disponible(s) para descargar', 3);
-
-		  	foreach($files as $file){         
-				echo anchor('admin/downloads/'.$file, $file).br(1);            
-		  	}
-		}
-		else{
-			echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
-		}
-
-	?>
-	</div>
-
-	<div >
-	<?=anchor('login/', 'Registrarse'); ?>
-	</div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -456,8 +421,18 @@ footer a {
         <?php echo form_close() ?>
         
     </div>  
+
+
+    
+   
+
+    <?php if($files){ ?>
+            <?php echo heading('Archivo(s) disponible(s) para descargar', 3);?>
+           
             
+
     <?php //si hay resultados los mostramos
+
 
     if(is_array($resultados) && !is_null($resultados))
     {
@@ -479,9 +454,15 @@ footer a {
             </div>
                 
             <div class="grid_12" id="body_rñesultados">
+            
+             <?php foreach($files as $file){         ?>
+
             <?php
             foreach($resultados as $fila)
             {
+                if ($fila->ruta==$file) {
+                    # code...
+                
             ?>
                 <tr>
                 <td><div class="grid_1"><?php echo $fila->titulo ?></div></td>
@@ -489,22 +470,47 @@ footer a {
                 <td><div class="grid_3"><?php echo $fila->fecha ?></div></td>
                 <td><div class="grid_4"><?php echo $fila->descripcion ?></div></td>
                 <td><div class="grid_5"><?php echo $fila->resumen ?></div></td>
-                <td><div class="grid_6"><?php echo $fila->ruta ?></div></td>
+                
+                <td><div class="grid_6"><?php echo anchor('admin/downloads/'.$file, $file).br(1); ?></div></td>
                 </tr>
             <?php
+              }
             }
             ?>
+                                
+            <?php } ?>
             </div>
         </div>
         <?php
         }
         ?>
+
+    <?php } 
+    else{?>
+            <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
+    <?php } ?>
         </table>
     </div>
 </div>
     </p>
     <h2>Titulo 2</h2>
-    <p>--------------------
+    <p>
+
+        <div >
+        <?php
+            if($files){
+            echo heading('Archivo(s) disponible(s) para descargar', 3);
+
+                foreach($files as $file){         
+                    echo anchor('admin/downloads/'.$file, $file).br(1);            
+                }
+            }
+            else{
+                echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
+            }
+
+        ?>
+        </div>
 
     </p>
     <p>---------------------------------</p>

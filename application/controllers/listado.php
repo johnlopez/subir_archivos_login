@@ -81,6 +81,32 @@ public function downloads($name){
 			}
 			
 		}
+		else
+		{
+			
+			//limpiamos los campos del formulario, no necesitamos validar
+			$this->form_validation->set_rules('titulo', 'titulo', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('resumen', 'resumen', 'trim|max_length[40]|xss_clean');		 
+
+	        $this->form_validation->set_rules('sector', 'sector', 'trim|xss_clean');
+	 		$this->form_validation->set_rules('poblacion', 'poblacion', 'trim|xss_clean');
+				
+			//los campos del formulario deben tener el mismo nombre
+			//que los de la base de datos a buscar, esto luego lo 
+			//recorremos para comprobar como vienen				
+			$campos = array('sector', 'poblacion', 'resumen','titulo');
+			
+			//envíamos los datos al modelo para hacer la búsqueda
+			$resultados = $this->files_model->nueva_busqueda($campos);
+			
+			if($resultados !== FALSE)
+			{
+				
+				return $resultados;
+				
+			}
+			
+		}
 		
 	}
 
