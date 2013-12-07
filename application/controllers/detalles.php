@@ -1,6 +1,6 @@
 <?php
 
-class Listado extends CI_Controller {
+class Detalles extends CI_Controller {
 
 public function __construct() {
 		parent::__construct();
@@ -33,7 +33,7 @@ public function index()
         }
 
         
-        $this->load->view('listado_view',$data);	
+        $this->load->view('detalles_view',$data);	
 		
 	}
 
@@ -152,29 +152,3 @@ public function downloads($name){
  
     }
 
-    //*********** Ver Detalles de un archivos*************
-public function detalles(){	
-
-   $files = get_filenames($this->folder, FALSE);
-	
-		if($files){
-		$data = array('titulo' => 'Buscador', 
-					  'resultados' => $this->busqueda(),
-					  'files'=>$files
-					  );
-             
-        }else{
-    		$data = array('titulo' => 'Buscador', 
-				  'resultados' => $this->busqueda(),
-				  'files'=>NULL
-				  );
-        	
-        }
-
-        
-        
-   $this->load->view('detalles_view',$data);	
- 
-}
-
-}
