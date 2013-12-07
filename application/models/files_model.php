@@ -60,6 +60,9 @@ class Files_model extends CI_Model {
         //definimos si descripción viene vacio o no para utilizar el operador and or
         $and_or = $this->input->post('resumen') != '' ? ' AND ' : ' OR ';
         $and_or = $this->input->post('titulo') != '' ? ' AND ' : ' OR ';
+        $and_or = $this->input->post('autor') != '' ? ' AND ' : ' OR ';
+        $and_or = $this->input->post('descripción') != '' ? ' AND ' : ' OR ';
+        $and_or = $this->input->post('fecha') != '' ? ' AND ' : ' OR ';
             
         $condiciones = array();
         

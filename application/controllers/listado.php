@@ -61,6 +61,9 @@ public function downloads($name){
 			//limpiamos los campos del formulario, no necesitamos validar
 			$this->form_validation->set_rules('titulo', 'titulo', 'trim|max_length[40]|xss_clean');		 
 			$this->form_validation->set_rules('resumen', 'resumen', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('autor', 'autor', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('descripcion', 'descripcion', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('fecha', 'fecha', 'trim|max_length[40]|xss_clean');		 
 
 	        $this->form_validation->set_rules('sector', 'sector', 'trim|xss_clean');
 	 		$this->form_validation->set_rules('poblacion', 'poblacion', 'trim|xss_clean');
@@ -68,7 +71,7 @@ public function downloads($name){
 			//los campos del formulario deben tener el mismo nombre
 			//que los de la base de datos a buscar, esto luego lo 
 			//recorremos para comprobar como vienen				
-			$campos = array('sector', 'poblacion', 'resumen','titulo');
+			$campos = array('sector', 'poblacion', 'resumen','titulo','autor','descripcion','fecha');
 			
 			//envíamos los datos al modelo para hacer la búsqueda
 			$resultados = $this->files_model->nueva_busqueda($campos);
@@ -87,6 +90,9 @@ public function downloads($name){
 			//limpiamos los campos del formulario, no necesitamos validar
 			$this->form_validation->set_rules('titulo', 'titulo', 'trim|max_length[40]|xss_clean');		 
 			$this->form_validation->set_rules('resumen', 'resumen', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('autor', 'autor', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('descripcion', 'descripcion', 'trim|max_length[40]|xss_clean');		 
+			$this->form_validation->set_rules('fecha', 'fecha', 'trim|max_length[40]|xss_clean');		 
 
 	        $this->form_validation->set_rules('sector', 'sector', 'trim|xss_clean');
 	 		$this->form_validation->set_rules('poblacion', 'poblacion', 'trim|xss_clean');
@@ -94,7 +100,7 @@ public function downloads($name){
 			//los campos del formulario deben tener el mismo nombre
 			//que los de la base de datos a buscar, esto luego lo 
 			//recorremos para comprobar como vienen				
-			$campos = array('sector', 'poblacion', 'resumen','titulo');
+			$campos = array('sector', 'poblacion', 'resumen','titulo','autor','descripcion','fecha');
 			
 			//envíamos los datos al modelo para hacer la búsqueda
 			$resultados = $this->files_model->nueva_busqueda($campos);

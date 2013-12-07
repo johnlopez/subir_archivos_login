@@ -382,20 +382,31 @@ footer a {
         <?php $atributos = array('class' => 'formulario') ?>
         <?php echo form_open('listado',$atributos) ?>
 
-            <?php echo form_label('buscar en el resumen') ?>
-            <input type="text" name="resumen" class="resumen" id="resumen" placeholder="Tus palabras clave" />
+            <?php echo form_label('Buscar segun Resumen') ?>
+            <input type="text" name="resumen" class="resumen" id="resumen" placeholder="ingresa busqueda" />
             
-            <?php echo form_label('buscar segun titulo') ?>
-            <input type="text" name="titulo" class="titulo" id="titulo" placeholder='impacto' />
+            <?php echo form_label('Buscar segun Titulo') ?>
+            <input type="text" name="titulo" class="titulo" id="titulo" placeholder='ingresa busqueda' />
+            
+            <?php echo form_label('Buscar segun Autor') ?>
+            <input type="text" name="autor" class="autor" id="autor" placeholder="ingresa busqueda" />
+
+            <?php echo form_label('Buscar segun Descripcion') ?>
+            <input type="text" name="descripcion" class="descripcion" id="descripcion" placeholder="ingresa busqueda" />
+            
+            <?php echo form_label('Buscar segun Fecha') ?>
+            <input type="text" name="fecha" class="fecha" id="fecha" placeholder="ingresa fecha" />
+            
             
 
             <?php echo form_label('Sector') ?>  
             <select name="sector" class="sector" id="select">
                 <option value="" selected="selected">Sector</option>
-                <option value="Programación">Programación</option>
-                <option value="Medicina">Medicina</option>
-                <option value="Comerciales">Comerciales</option>
-                <option value="Almacén">Almacén</option>
+                <option value="resumen">resumen</option>
+                <option value="titulo">titulo</option>
+                <option value="autor">autor</option>
+                <option value="descripcion">descripcion</option>
+                <option value="fecha">fecha</option>
             </select>
             
             <!--este es nuestro autocompletado-->
@@ -413,7 +424,7 @@ footer a {
 
     
     
-    <?php echo heading('Archivos disponibles para descargar:', 3);?>
+    <?php echo heading('Tesis Disponibles para Descargar:', 3);?>
     <?php if($files){ ?>
            
            
@@ -430,16 +441,18 @@ footer a {
     <div class="CSSTableGenerator" >
         <table >
         <div class="grid_12 resultados">
-            <h2>Resultados</h2>
+            
 
             <div class="grid_12" id="head_resultados">
                 <tr>
                 <td><div class="grid_1">Titulo</div></td>
                 <td><div class="grid_2">Autor</div></td>
                 <td><div class="grid_3">Fecha</div></td>
+                <!--
                 <td><div class="grid_4">Descripcion</div></td>      
                 <td><div class="grid_5">Resumen</div></td>
                 <td><div class="grid_6">Ruta</div></td>
+                -->
                 </tr>
             </div>
                 
@@ -471,10 +484,13 @@ footer a {
                 </div></td>
                 <td><div class="grid_2"><?php echo $fila->autor ?></div></td>
                 <td><div class="grid_3"><?php echo $fila->fecha ?></div></td>
+                <!--
                 <td><div class="grid_4"><?php echo $fila->descripcion ?></div></td>
-                <td><div class="grid_5"><?php echo $fila->titulo ?></div></td>
+                <td><div class="grid_5"><?php echo $fila->resumen ?></div></td>
                 
                 <td><div class="grid_6"><?php echo anchor('admin/downloads/'.$file, $file).br(1); ?></div></td>
+                -->
+
                 </tr>
             <?php
               }
@@ -489,7 +505,7 @@ footer a {
         else{?>
             <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
     <?php } ?>
-        ?>
+        
 
     <?php } //if($files)
     else{?>
