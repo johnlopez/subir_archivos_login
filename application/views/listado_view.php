@@ -398,7 +398,7 @@ footer a {
             <input type="text" name="fecha" class="fecha" id="fecha" placeholder="ingresa fecha" />
             
             
-
+<!--
             <?php echo form_label('Sector') ?>  
             <select name="sector" class="sector" id="select">
                 <option value="" selected="selected">Sector</option>
@@ -409,11 +409,13 @@ footer a {
                 <option value="fecha">fecha</option>
             </select>
             
-            <!--este es nuestro autocompletado-->
+            <!--este es nuestro autocompletado
             <input type="text" autocomplete="off" onpaste="return false" name="poblacion" 
             id="poblacion" class="poblacion" placeholder="Busca tu población" />
             
             <div class="muestra_poblaciones"></div>
+
+-->
                 
             <?php echo form_submit('buscar','Buscar') ?>
             
