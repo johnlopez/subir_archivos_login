@@ -54,9 +54,11 @@ class Admin extends CI_Controller {
 
 
 		$config['upload_path'] = $this->folder;
-		$config['allowed_types'] = 'zip|rar|pdf|docx|txt';
+		$config['allowed_types'] = 'pdf';
 		$config['remove_spaces']=TRUE;
-		$config['max_size']	= '2048';
+		$config['max_size']	= '1*1024';
+
+		$this->form_validation->set_message('max_size', 'Archivo %s Demasiado Grande');
 
 		$this->load->library('upload', $config);
 
@@ -110,6 +112,13 @@ class Admin extends CI_Controller {
 //************ SE OBTIENEN LOS NOMBRES DE LOS ARCHIVOS ****************
 
 public function info(){
+
+	if($this->session->userdata('perfil') == FALSE || $this->session->userdata('perfil') != 'administrador')
+		{
+			redirect(base_url().'login');
+		}
+	else
+	{
 	
 	$files = get_filenames($this->folder, FALSE);
 	
@@ -119,7 +128,9 @@ public function info(){
         }else{
         	$data['files']=NULL;
         }
-   $this->load->view('filenames',$data);	
+   $this->load->view('filenames',$data);
+
+   }	
  
 }
 //************ DESCARGA DE ARCHIVOS ***********************

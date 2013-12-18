@@ -30,13 +30,12 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing:-0.06em;
     text-transform:uppercase;
     font-weight:normal;
-
 }
 
 a:link, a:visited {
     font-family:georgia, times, serif;
     font-weight:bold;
-    color:#4169e1; 
+    color:#4169e1;
     text-decoration:none;
     border-bottom:1px solid #91476c;
     font-size:.8em;
@@ -122,7 +121,7 @@ section#right {
 
 section h1, section h2, section h3, section h4, section h5, section h6 {
     background:transparent url(sprites.png) no-repeat 0px -80px;
-    color:#000000;
+    color:#fff;
     padding:9px 10px 10px 10px;
     margin:13px -10px;  
     text-shadow:0 1px 0 #403232;
@@ -160,7 +159,7 @@ article {
 
 article h1 {
     background:transparent url(sprites.png) no-repeat 0px 0px;
-    color:#000000;
+    color:#fff;
     padding:7px 10px 12px 30px;
     margin-left:-30px;
     text-shadow:0 1px 0 #403232;
@@ -168,7 +167,7 @@ article h1 {
 
 article h2, article h3, article h4, article h5, article h6  {
     background:transparent url(sprites.png) no-repeat 0px -40px;
-    color:#000000;
+    color:#fff;
     padding:7px 10px 12px 30px;
     margin-left:-30px;
     text-shadow:0 1px 0 #913951;
@@ -233,108 +232,7 @@ footer {
 footer a {
     margin:0px 5px;
 }
-
-
-/////////////////////// TABLA CSS //////////////////////////////////////
-.CSSTableGenerator {
-    margin:0px;padding:0px;
-    width:100%;
-    box-shadow: 10px 10px 5px #888888;
-    border:1px solid #3f7f00;
-    
-    -moz-border-radius-bottomleft:8px;
-    -webkit-border-bottom-left-radius:8px;
-    border-bottom-left-radius:8px;
-    
-    -moz-border-radius-bottomright:8px;
-    -webkit-border-bottom-right-radius:8px;
-    border-bottom-right-radius:8px;
-    
-    -moz-border-radius-topright:8px;
-    -webkit-border-top-right-radius:8px;
-    border-top-right-radius:8px;
-    
-    -moz-border-radius-topleft:8px;
-    -webkit-border-top-left-radius:8px;
-    border-top-left-radius:8px;
-}.CSSTableGenerator table{
-    border-collapse: collapse;
-        border-spacing: 0;
-    width:100%;
-    height:100%;
-    margin:0px;padding:0px;
-}.CSSTableGenerator tr:last-child td:last-child {
-    -moz-border-radius-bottomright:8px;
-    -webkit-border-bottom-right-radius:8px;
-    border-bottom-right-radius:8px;
-}
-.CSSTableGenerator table tr:first-child td:first-child {
-    -moz-border-radius-topleft:8px;
-    -webkit-border-top-left-radius:8px;
-    border-top-left-radius:8px;
-}
-.CSSTableGenerator table tr:first-child td:last-child {
-    -moz-border-radius-topright:8px;
-    -webkit-border-top-right-radius:8px;
-    border-top-right-radius:8px;
-}.CSSTableGenerator tr:last-child td:first-child{
-    -moz-border-radius-bottomleft:8px;
-    -webkit-border-bottom-left-radius:8px;
-    border-bottom-left-radius:8px;
-}.CSSTableGenerator tr:hover td{
-    
-}
-.CSSTableGenerator tr:nth-child(odd){ background-color:#d4ffaa; }
-.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
-    vertical-align:middle;
-    
-    
-    border:1px solid #3f7f00;
-    border-width:0px 1px 1px 0px;
-    text-align:left;
-    padding:7px;
-    font-size:10px;
-    font-family:Arial;
-    font-weight:normal;
-    color:#000000;
-}.CSSTableGenerator tr:last-child td{
-    border-width:0px 1px 0px 0px;
-}.CSSTableGenerator tr td:last-child{
-    border-width:0px 0px 1px 0px;
-}.CSSTableGenerator tr:last-child td:last-child{
-    border-width:0px 0px 0px 0px;
-}
-.CSSTableGenerator tr:first-child td{
-        background:-o-linear-gradient(bottom, #4d9307 5%, #336005 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4d9307), color-stop(1, #336005) );
-    background:-moz-linear-gradient( center top, #4d9307 5%, #336005 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4d9307", endColorstr="#336005");  background: -o-linear-gradient(top,#4d9307,336005);
-
-    background-color:#4d9307;
-    border:0px solid #3f7f00;
-    text-align:center;
-    border-width:0px 0px 1px 1px;
-    font-size:14px;
-    font-family:Arial;
-    font-weight:bold;
-    color:#ffffff;
-}
-.CSSTableGenerator tr:first-child:hover td{
-    background:-o-linear-gradient(bottom, #4d9307 5%, #336005 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4d9307), color-stop(1, #336005) );
-    background:-moz-linear-gradient( center top, #4d9307 5%, #336005 100% );
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4d9307", endColorstr="#336005");  background: -o-linear-gradient(top,#4d9307,336005);
-
-    background-color:#4d9307;
-}
-.CSSTableGenerator tr:first-child td:first-child{
-    border-width:0px 0px 1px 0px;
-}
-.CSSTableGenerator tr:first-child td:last-child{
-    border-width:0px 0px 1px 1px;
-}
-
 </style>
-
-
 
 </head>
 
@@ -350,7 +248,7 @@ footer a {
             <li><a href="#">Home</a></li>
             <li><a href="#">Tab 1</a></li>
             <li><a href="#">Tab 2</a></li>
-            <li><a><?=anchor('login/', 'Registrarse'); ?></a></li>
+            <li><a href="#">Tab 3</a></li>
         </ul>
     </nav>
     
@@ -374,184 +272,37 @@ footer a {
 </section>
 
 <article>
-    <h1>Buscador</h1>
+    <h1>Titulo 1</h1>
     <p> 
-<div class="container_12">
-    <div class="grid_12" id="buscador_multipe">
-        
-        <?php $atributos = array('class' => 'formulario') ?>
-        <?php echo form_open('listado',$atributos) ?>
 
-            <?php echo form_label('Buscar segun Resumen') ?>
-            <input type="text" name="resumen" class="resumen" id="resumen" placeholder="ingresa busqueda" />
-            
-            <?php echo form_label('Buscar segun Titulo') ?>
-            <input type="text" name="titulo" class="titulo" id="titulo" placeholder='ingresa busqueda' />
-            
-            <?php echo form_label('Buscar segun Autor') ?>
-            <input type="text" name="autor" class="autor" id="autor" placeholder="ingresa busqueda" />
+	<div >
+	<?php
+ 		if($files){
+ 		echo heading('Archivo(s) disponible(s) para descargar', 3);
 
-            <?php echo form_label('Buscar segun Descripcion') ?>
-            <input type="text" name="descripcion" class="descripcion" id="descripcion" placeholder="ingresa busqueda" />
-            
-            <?php echo form_label('Buscar segun Fecha') ?>
-            <input type="text" name="fecha" class="fecha" id="fecha" placeholder="ingresa fecha" />
-            
-            
-<!--
-            <?php echo form_label('Sector') ?>  
-            <select name="sector" class="sector" id="select">
-                <option value="" selected="selected">Sector</option>
-                <option value="resumen">resumen</option>
-                <option value="titulo">titulo</option>
-                <option value="autor">autor</option>
-                <option value="descripcion">descripcion</option>
-                <option value="fecha">fecha</option>
-            </select>
-            
-            <!--este es nuestro autocompletado
-            <input type="text" autocomplete="off" onpaste="return false" name="poblacion" 
-            id="poblacion" class="poblacion" placeholder="Busca tu población" />
-            
-            <div class="muestra_poblaciones"></div>
+		  	foreach($files as $file){         
+				echo anchor('admin/downloads/'.$file, $file).br(1);            
+		  	}
+		}
+		else{
+			echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
+		}
 
--->
-                
-            <?php echo form_submit('buscar','Buscar') ?>
-            
-        <?php echo form_close() ?>
-        
-    </div>  
+	?>
+	</div>
 
-
-    
-    
-    <?php echo heading('Tesis Disponibles para Descargar:', 3);?>
-    <?php if($files){ ?>
-           
-           
-            
-
-    <?php //si hay resultados los mostramos
-
-
-    if(is_array($resultados) && !is_null($resultados))
-    {
-    ?>
-
-
-    <div class="CSSTableGenerator" >
-        <table >
-        <div class="grid_12 resultados">
-            
-
-            <div class="grid_12" id="head_resultados">
-                <tr>
-                <td><div class="grid_1">Titulo</div></td>
-                <td><div class="grid_2">Autor</div></td>
-                <td><div class="grid_3">Fecha</div></td>
-                <!--
-                <td><div class="grid_4">Descripcion</div></td>      
-                <td><div class="grid_5">Resumen</div></td>
-                <td><div class="grid_6">Ruta</div></td>
-                -->
-                </tr>
-            </div>
-                
-            <div class="grid_12" id="body_rñesultados">
-            
-             <?php foreach($files as $file){         ?>
-
-            <?php
-            foreach($resultados as $fila)
-            {
-                if ($fila->ruta==$file) {
-                    # code...
-                
-            ?>
-                <tr>
-                <td><div class="grid_1"><?php echo $fila->titulo; $a=$fila->titulo;?>
-
-                    <form action="http://localhost/roles_usuarios/listado/detalles" method="post">
-                    <input type="hidden" name="variable1" value="<?php echo $a ?>" />
-                    
-                    
-                    <input type="submit" value="Ver Detalles" />
-
-                    </form>
-
-
-
-
-                </div></td>
-                <td><div class="grid_2"><?php echo $fila->autor ?></div></td>
-                <td><div class="grid_3"><?php echo $fila->fecha ?></div></td>
-                <!--
-                <td><div class="grid_4"><?php echo $fila->descripcion ?></div></td>
-                <td><div class="grid_5"><?php echo $fila->resumen ?></div></td>
-                
-                <td><div class="grid_6"><?php echo anchor('admin/downloads/'.$file, $file).br(1); ?></div></td>
-                -->
-
-                </tr>
-            <?php
-              }
-            }
-            ?>
-                                
-            <?php } ?>
-            </div>
-        </div>
-        <?php
-        }// if resultados
-        else{?>
-            <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
-    <?php } ?>
-        
-
-    <?php } //if($files)
-    else{?>
-            <?php echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');?>
-    <?php } ?>
-        </table>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
+	<div >
+	<?=anchor('login/', 'Registrarse'); ?>
+	</div>
     </p> 
 
-
-    
-    <h2>.</h2>
-    <p>
-
-        <div >
-        <?php
-        /*
-            if($files){
-            echo heading('Archivo(s) disponible(s) para descargar', 3);
-
-                foreach($files as $file){         
-                    echo anchor('admin/downloads/'.$file, $file).br(1);            
-                }
-            }
-            else{
-                echo heading('No hay archivos para descargar ', 3).anchor('admin', 'Subir un Archivo');
-            }
-        */
-        ?>
-        </div>
-
+---------------------------------
     </p>
+    <h2>Titulo 2</h2>
+    <p>
+---------------------------------</p>
     <p>---------------------------------</p>
-    <h3>.</h3>
+    <h3>Titulo 3</h3>
     <p>---------------------------------
     </p>
 </article>
