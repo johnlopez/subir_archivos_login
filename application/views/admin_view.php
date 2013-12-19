@@ -148,6 +148,7 @@ echo form_fieldset('Ingreso Tesis');
 			
 	
 			<h5><?=br(1).anchor('admin/info', 'Listado de archivos para descargar'); ?></h5>
+            <h5><?=br(1).anchor('admin/nuevousuario', 'crear nuevo ususario'); ?></h5>
 
 			
 		</div>
