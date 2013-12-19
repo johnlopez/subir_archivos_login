@@ -173,21 +173,16 @@ class Admin extends CI_Controller {
 				$username = $this->input->post('username');
 				$password = $this->input->post('password');
 				
-				$hash = $this->bcrypt->hash_password($password);
+				$hash = $this->encrypt->sha1($password);
 				
 				//comprobamos si el password se ha encriptado
-				if ($this->bcrypt->check_password($password, $hash))
-				{
+			
 				    $insert_password = $this->files_model->save_pass($username,$hash);
 					if($insert_password)
 					{
 						redirect(base_url().'admin');
 					}
-				}
-				else
-				{
-				    echo 'error';		
-				}
+			
 			}
 		}
 	}

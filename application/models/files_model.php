@@ -27,7 +27,8 @@ class Files_model extends CI_Model {
     {
         $data = array(
             'username'      =>      $username,
-            'password'      =>      $hash
+            'password'      =>      $hash,
+            'perfil'        => 'administrador'
         );
         return $this->db->insert('users',$data);
     }
