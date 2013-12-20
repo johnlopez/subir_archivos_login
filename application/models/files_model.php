@@ -52,4 +52,17 @@ class Files_model extends CI_Model {
             }
         }
     }
+
+    public function very_user($username)
+    {
+        $consulta = $this->db->get_where('users', array('username' => $username));
+        if ($consulta->num_rows() == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

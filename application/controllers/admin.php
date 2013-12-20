@@ -155,13 +155,15 @@ class Admin extends CI_Controller {
 		// que la generada con el método token dejamos pasar
 		if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
 		{
-			$this->form_validation->set_rules('username', 'nombre de usuario', 'required|trim|min_length[2]|max_length[150]|xss_clean');
-	       	$this->form_validation->set_rules('password', 'password', 'required|trim|min_length[6]|max_length[150]|xss_clean');
+			$this->form_validation->set_rules('username', 'nombre de usuario', 'required|trim|min_length[2]|max_length[150]|xss_clean|callback_very_user');
+	       	$this->form_validation->set_rules('password', 'password', 'required|trim|min_length[4]|max_length[150]|xss_clean');
+	       	
 	 
 	        //lanzamos mensajes de error si es que los hay
 	        $this->form_validation->set_message('required', 'El %s es requerido');
 	        $this->form_validation->set_message('min_length', 'El %s debe tener al menos %s carácteres');
 	        $this->form_validation->set_message('max_length', 'El %s debe tener al menos %s carácteres');
+			$this->form_validation->set_message('very_user','El %s ya existe en la base de datos');
 			
 			//si el proceso falla mostramos errores
 			if($this->form_validation->run() == FALSE)
@@ -180,10 +182,25 @@ class Admin extends CI_Controller {
 				    $insert_password = $this->files_model->save_pass($username,$hash);
 					if($insert_password)
 					{
+						
 						redirect(base_url().'admin');
 					}
 			
 			}
+		}
+	}
+	// verifica si el usuario existe
+	function very_user($user)
+	{
+		$variable = $this->files_model->very_user($user);
+		if ($variable == true) 
+		{
+			return false;
+			
+		}
+		else
+		{
+			return true;
 		}
 	}
 }

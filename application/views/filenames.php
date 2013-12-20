@@ -27,7 +27,7 @@
 		  echo anchor('admin/downloads/'.$file, $file).br(1); 
                    
 	  }
-echo br(1).anchor('admin', 'Subir otro archivo'); 	
+	
  }else{
 
 echo heading('No hay archivos para descargar', 3).anchor('admin', 'Subir un Archivo');
@@ -35,6 +35,11 @@ echo heading('No hay archivos para descargar', 3).anchor('admin', 'Subir un Arch
  } 
 
  ?>
+
+ <h2>Links</h2>
+	  		<h4><?=br(1).anchor('admin/info', 'Listado Archivos Disponibles'); ?></h4>
+	  		<h4><?=br(1).anchor('admin', 'Subir Proyecto de Titulo');	?></h4>
+	  		<h4><?=br(1).anchor('admin/nuevousuario', 'Crear Nuevo Ususario'); ?></h4>
 	
 	</div>
 
